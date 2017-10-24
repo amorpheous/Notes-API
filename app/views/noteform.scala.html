@@ -1,0 +1,18 @@
+@(noteForm: Form[Note])
+
+@main("Note form") {
+
+	@helper.form(action = routes.NotesController.save()) {
+
+	<form>
+		<fieldset>
+			<legend>Note (@noteForm("title").valueOr("New")) </legend>	
+			@helper.inputText(noteForm("id"), '_label -> "Id") 
+			@helper.inputText(noteForm("title"),'_label -> "Title")
+			@helper.textarea(noteForm("description"), '_label -> "Description")			
+		</fieldset>
+		<input type="submit" class="post-btn" value="Save"</input>
+		<a class="btn" href="@routes.NotesController.list()">Cancel</a>
+	</form>
+	}
+}

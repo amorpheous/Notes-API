@@ -1,0 +1,52 @@
+@(notes: List[Note])
+
+@main("Notes"){
+
+<div>
+<legend>Notes</legend> 
+
+<script>
+
+jQuery(function() {
+	  $(".update-form").click(function() {   
+		  var id =  $(this).attr('data-id');
+	      window.location = "/notes/update/" + id;  
+	  });       
+});
+
+  jQuery(function() {
+	  $(".delete").click(function() {
+		  var id = $(this).attr('data-id');
+		  
+	  $.ajax({
+		  url: "/notes/" + id,
+		  type: "DELETE",
+		  success: function() {
+			  location.reload();
+		  } 
+	  });
+  });	  
+  });
+
+  jQuery(function() {
+	  $(".new-note").click(function() {
+		 window.location = "/notes/new";
+	  });
+  });
+</script>	  
+	
+
+<table>
+		@for(note <- notes) {
+  			<p>Id: @note.id<br><br>
+  			<font size="3">&nbsp; Title: @note.title</font><br><br>
+			 &nbsp; &nbsp; Description: @note.description <br><br> <br>
+			 <input type="button" align="right" value="Update" data-id="@note.id"  class="update-form"></input>                           
+			 <input type="button" aling="right" value="Delete" data-id="@note.id"  class="delete"></input>
+			</p>	
+}
+</table>
+</div>
+}
+<br><br>
+<input type="button" align="left" value="New note" class="new-note"></input>
