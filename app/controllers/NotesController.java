@@ -1,6 +1,7 @@
 package controllers;
 
 import java.util.List;
+import java.util.UUID;
 
 import models.Note;
 import play.mvc.Controller;
@@ -27,6 +28,8 @@ public class NotesController extends Controller {
 	
 	public Result newNote() {
 		Form<Note> noteForm = formFactory.form(Note.class);
+		Note note = new Note(UUID.randomUUID().toString(), null, null);
+		noteForm.fill(note);
 		return ok(noteform.render(noteForm));
 	}
 	
@@ -57,7 +60,6 @@ public class NotesController extends Controller {
 
 	//update
 	
- 
 	public Result update(String id) {
 		Form<Note> noteForm = formFactory.form(Note.class);
 	    Note note = Note.findById(id);

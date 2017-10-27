@@ -3,10 +3,11 @@
 @main("Note form") {
 
 	@helper.form(action = routes.NotesController.save()) {
+	
 
 	<form>
 		<fieldset>
-			<legend>Note (@noteForm("title").valueOr("New")) </legend>	
+			<legend>Note (@noteForm("title").valueOr("New")) </legend>
 			@helper.inputText(noteForm("id"), '_label -> "Id") 
 			@helper.inputText(noteForm("title"),'_label -> "Title")
 			@helper.textarea(noteForm("description"), '_label -> "Description")			
