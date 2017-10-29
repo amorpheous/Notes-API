@@ -24,8 +24,6 @@ public class Note {
 
 	public static List<Note> notes ;
 		static { notes = new ArrayList<Note>();
-		//notes.add(new Note("","Jogging in park", "At least 10 miles is the goal"));
-		//notes.add(new Note("","Pick-up posters from post-office", "They are only open from 9 am to 3 pm"));
 		}
 	
 	
