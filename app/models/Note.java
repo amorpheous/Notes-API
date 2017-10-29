@@ -3,7 +3,6 @@ package models;
 import java.util.ArrayList;
 import java.util.List;
 import java.lang.String;
-import java.util.UUID;
 
 
 public class Note {
@@ -16,7 +15,6 @@ public class Note {
 	public Note() {};
 	
 	public  Note( String id, String title, String description) {
-		id = UUID.randomUUID().toString();
 		this.id = id;
 		this.title = title;
 		this.description = description;

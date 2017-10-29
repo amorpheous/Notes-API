@@ -27,9 +27,7 @@ public class NotesController extends Controller {
 	//new note
 	
 	public Result newNote() {
-		Form<Note> noteForm = formFactory.form(Note.class);
-		Note note = new Note(UUID.randomUUID().toString(), null, null);
-		noteForm.fill(note);
+		Form<Note> noteForm = formFactory.form(Note.class);;
 		return ok(noteform.render(noteForm));
 	}
 	
